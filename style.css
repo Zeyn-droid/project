@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #fcfbf7;
+  color: #333;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.container {
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  background: #ffffff;
+  padding: 40px 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border: 1px solid #eae6df;
+}
+
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem;
+  color: #b89756;
+  line-height: 1.1;
+  margin: 15px 0;
+}
+
+h2, h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  color: #4a4a4a;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.date {
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.card {
+  background: #faf8f5;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 25px 0;
+  border: 1px solid #f0ece1;
+}
+
+#timer {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0 30px;
+}
+
+#timer div {
+  background: #fdfbf7;
+  padding: 10px;
+  border-radius: 8px;
+  width: 70px;
+  border: 1px solid #ebd2b0;
+}
+
+#timer span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #b89756;
+}
+
+#timer p {
+  font-size: 0.7rem;
+  color: #777;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+button {
+  background-color: #b89756;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #a08042;
+}
