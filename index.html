@@ -4,39 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Салауат & Аида — Тойға шақыру</title>
-
-  <!-- Шрифты -->
+  <!-- Подключение шрифтов -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
-  <!-- Подключение AOS (Библиотека анимации при скролле) -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Аудио плеер (Убедись, что mp3 лежит рядом под именем music.mp3) -->
-  <audio id="bgMusic" src="music.mp3" loop preload="auto"></audio>
+  <!-- Аудио плеер -->
+  <audio id="bgMusic" src="miras-zhugunusov-feat.-kazybek-kuraiysh-ashypyn.mp3" loop></audio>
 
   <div class="main-wrapper">
 
-    <!-- 1. Главная карточка (Hero) -->
+    <!-- 1. Главная карточка (Hero Section) -->
     <header class="hero-card">
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <p class="top-date" data-aos="fade-down" data-aos-duration="1200">03.10.2026</p>
-        <h1 class="couple-names" data-aos="zoom-in" data-aos-duration="1500">САЛАУАТ<br><span>&</span><br>АИДА</h1>
+        <p class="top-date">03.10.2026</p>
+        <h1 class="couple-names">САЛАУАТ<br><span>&</span><br>АИДА</h1>
         
-        <!-- Кнопка винила -->
-        <div class="player-container" data-aos="fade-up" data-aos-duration="1400">
+        <!-- Кнопка плеера -->
+        <div class="player-container">
           <button id="musicToggle" class="vinyl-disc" title="Музыканы қосу/өшіру">
             <span class="disc-center"></span>
           </button>
         </div>
         
-        <!-- Кнопка «бастау» -->
-        <div id="scrollBtn" class="scroll-down-hint" data-aos="fade-up" data-aos-duration="1600">
+        <div class="scroll-down-hint">
           <span>бастау</span>
           <div class="arrow-down">∨</div>
         </div>
@@ -44,7 +39,7 @@
     </header>
 
     <!-- 2. Шақыру мәтіні -->
-    <section class="content-card invitation-section" data-aos="fade-up" data-aos-duration="1200">
+    <section class="content-card invitation-section">
       <h2 class="script-heading">Құрметті</h2>
       <p class="guest-categories">
         АҒАЙЫН-ТУЫС, БАУЫРЛАР,<br>
@@ -69,8 +64,8 @@
       </p>
     </section>
 
-    <!-- 3. Календарь со спецэффектом 3D зума и перелива даты -->
-    <section class="content-card calendar-section" data-aos="zoom-in-up" data-aos-duration="1300">
+    <!-- 3. Календарь -->
+    <section class="content-card calendar-section">
       <h2 class="script-month">Қазан</h2>
       <div class="calendar-grid">
         <div class="day-name">ДҮ</div>
@@ -81,10 +76,10 @@
         <div class="day-name">СЕН</div>
         <div class="day-name">ЖЕК</div>
 
+        <!-- Дни месяца (октябрь 2026) -->
         <div class="day"></div><div class="day"></div><div class="day"></div>
         <div class="day">1</div><div class="day">2</div>
-        <!-- Выделенный день свадьбы с 3D спецэффектом -->
-        <div class="day wedding-day"><span>3</span></div><div class="day">4</div>
+        <div class="day wedding-day">3</div><div class="day">4</div>
         <div class="day">5</div><div class="day">6</div><div class="day">7</div>
         <div class="day">8</div><div class="day">9</div><div class="day">10</div>
         <div class="day">11</div><div class="day">12</div><div class="day">13</div>
@@ -97,18 +92,18 @@
       </div>
     </section>
 
-    <!-- 4. Таймлайн -->
-    <section class="content-card timeline-section" data-aos="fade-up" data-aos-duration="1200">
+    <!-- 4. Той бағдарламасы (Timeline) -->
+    <section class="content-card timeline-section">
       <h2 class="script-heading">Той бағдарламасы:</h2>
       
       <div class="timeline">
-        <div class="timeline-item" data-aos="flip-left" data-aos-delay="200">
+        <div class="timeline-item">
           <div class="timeline-heart">♥</div>
           <div class="timeline-time">19:00</div>
           <div class="timeline-text">Қонақтардың жиналуы</div>
         </div>
         <div class="timeline-line"></div>
-        <div class="timeline-item" data-aos="flip-right" data-aos-delay="400">
+        <div class="timeline-item">
           <div class="timeline-heart">♥</div>
           <div class="timeline-time">19:30</div>
           <div class="timeline-text">Тойдың басталуы</div>
@@ -116,41 +111,42 @@
       </div>
     </section>
 
-    <!-- 5. Таймер со спецэффектом сияния -->
-    <section class="content-card timer-card" data-aos="flip-up" data-aos-duration="1400">
+    <!-- 5. Обратный отсчет (Timer) -->
+    <section class="content-card timer-card">
       <div class="timer-bg-overlay"></div>
       <div class="timer-content">
-        <h2 class="timer-title" data-aos="fade-down" data-aos-delay="200">ТОЙ САЛТАНАТЫНА ДЕЙІН:</h2>
+        <h2 class="timer-title">ТОЙ САЛТАНАТЫНА ДЕЙІН:</h2>
         <div class="timer-grid" id="timer">
-          <div class="time-box" data-aos="zoom-in" data-aos-delay="300"><span id="days">00</span><small>КҮН</small></div>
-          <div class="time-box" data-aos="zoom-in" data-aos-delay="400"><span id="hours">00</span><small>САҒАТ</small></div>
-          <div class="time-box" data-aos="zoom-in" data-aos-delay="500"><span id="minutes">00</span><small>МИНУТ</small></div>
-          <div class="time-box" data-aos="zoom-in" data-aos-delay="600"><span id="seconds">00</span><small>СЕКУНД</small></div>
+          <div class="time-box"><span id="days">00</span><small>КҮН</small></div>
+          <div class="time-box"><span id="hours">00</span><small>САҒАТ</small></div>
+          <div class="time-box"><span id="minutes">00</span><small>МИНУТ</small></div>
+          <div class="time-box"><span id="seconds">00</span><small>СЕКУНД</small></div>
         </div>
       </div>
     </section>
 
     <!-- 6. Мекен-жайы -->
-    <section class="content-card location-section" data-aos="fade-up" data-aos-duration="1200">
+    <section class="content-card location-section">
       <h2 class="script-heading">Мекен-жайымыз:</h2>
-      <p class="city-name">КУЛЬСАРЫ ҚАЛАСЫ</p>
+      <p class="city-name">ҚҰЛСАРЫ ҚАЛАСЫ</p>
       <p class="venue-name">«АЛТЫН САРАЙ»<br>МЕЙРАМХАНАСЫ</p>
       
-      <div class="venue-image" data-aos="zoom-in-up" data-aos-duration="1000">
+      <div class="venue-image">
         <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80" alt="Мейрамхана">
       </div>
 
-      <a href="https://2gis.kz" target="_blank" class="map-button" data-aos="fade-up">КАРТАНЫ АШУ</a>
+      <!-- Ссылка на 2GIS -->
+      <a href="https://2giskz.app/atyrau/geo/70000001076243799" target="_blank" rel="noopener noreferrer" class="map-button">КАРТАНЫ АШУ</a>
     </section>
 
     <!-- 7. Той иелері -->
-    <section class="content-card hosts-card" data-aos="fade-up" data-aos-duration="1200">
+    <section class="content-card hosts-card">
       <h2 class="script-heading">Той иелері:</h2>
       <p class="host-names">Әжесі Мерузия<br>Біржан & Әлия</p>
     </section>
 
-    <!-- 8. RSVP Форма -->
-    <section class="content-card rsvp-section" data-aos="fade-up" data-aos-duration="1200">
+    <!-- 8. Форма подтверждения (RSVP) -->
+    <section class="content-card rsvp-section">
       <h2 class="script-heading">Сауалнама:</h2>
       <p class="rsvp-title">ТОЙҒА КЕЛУІҢІЗДІ РАСТАУЫҢЫЗДЫ СҰРАЙМЫЗ</p>
       <p class="rsvp-sub">Аты-жөніңіз (жұбыңызбен келетін болсаңыз, екеуіңіздің де атыңызды жазуыңызды өтінеміз)</p>
@@ -178,95 +174,45 @@
     </section>
 
     <!-- 9. Футер -->
-    <footer id="footerSection" class="content-card footer-section" data-aos="zoom-in" data-aos-duration="1500">
+    <footer class="content-card footer-section">
       <h2 class="script-footer">Қадірлі қонағымыз болыңыздар!</h2>
     </footer>
 
   </div>
 
-  <!-- Подключение скрипта AOS анимаций -->
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-
   <script>
-    // Инициализация библиотеки AOS
-    AOS.init({
-      once: false,      // Повторять анимацию при прокрутке вверх/вниз
-      mirror: true,
-      easing: 'ease-out-cubic'
-    });
-
+    // 1. Плеер и проигрывание
     const music = document.getElementById('bgMusic');
     const musicBtn = document.getElementById('musicToggle');
-    const scrollBtn = document.getElementById('scrollBtn');
     let isPlaying = false;
-    let autoScrollAnimationId = null;
 
-    // Функция управления музыкой
-    function playMusic() {
-      music.play().then(() => {
-        isPlaying = true;
-        musicBtn.classList.add('spinning');
-      }).catch(err => {
-        console.log("Ошибки с воспроизведением аудио:", err);
-      });
-    }
-
-    function pauseMusic() {
-      music.pause();
-      isPlaying = false;
-      musicBtn.classList.remove('spinning');
+    function toggleMusic() {
+      if (isPlaying) {
+        music.pause();
+        musicBtn.classList.remove('spinning');
+      } else {
+        music.play().then(() => {
+          musicBtn.classList.add('spinning');
+        }).catch(err => console.log("Автоплей бұғатталды:", err));
+      }
+      isPlaying = !isPlaying;
     }
 
     musicBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      if (isPlaying) pauseMusic();
-      else playMusic();
+      toggleMusic();
     });
 
-    // Очень медленный автоскролл вниз (45 секунд)
-    function startSuperSlowScroll(duration = 45000) {
-      if (autoScrollAnimationId) cancelAnimationFrame(autoScrollAnimationId);
-
-      const start = window.pageYOffset;
-      const target = document.documentElement.scrollHeight - window.innerHeight;
-      const distance = target - start;
-      let startTime = null;
-
-      function step(currentTime) {
-        if (!startTime) startTime = currentTime;
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-
-        // Линейная идеальная задержка движения
-        window.scrollTo(0, start + (distance * progress));
-
-        if (progress < 1) {
-          autoScrollAnimationId = requestAnimationFrame(step);
-        }
+    // Первый клик по экрану запускает музыку
+    document.body.addEventListener('click', () => {
+      if (!isPlaying) {
+        toggleMusic();
       }
+    }, { once: true });
 
-      autoScrollAnimationId = requestAnimationFrame(step);
-    }
-
-    // Остановка при скролле пальцем/колесиком
-    function stopAutoScroll() {
-      if (autoScrollAnimationId) {
-        cancelAnimationFrame(autoScrollAnimationId);
-        autoScrollAnimationId = null;
-      }
-    }
-
-    window.addEventListener('wheel', stopAutoScroll, { passive: true });
-    window.addEventListener('touchstart', stopAutoScroll, { passive: true });
-
-    // Клик на «бастау»
-    scrollBtn.addEventListener('click', () => {
-      playMusic();
-      startSuperSlowScroll(45000); // 45 секунд супер-медленной прокрутки
-    });
-
-    // Таймер обратного отсчета
+    // 2. Таймер
     const targetDate = new Date("October 3, 2026 19:00:00").getTime();
+
     setInterval(() => {
       const now = new Date().getTime();
       const diff = targetDate - now;
