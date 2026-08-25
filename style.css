@@ -22,7 +22,7 @@ body {
   text-align: center;
 }
 
-.invitation-card, .timer-card, .form-card {
+.invitation-card, .info-card, .timer-card, .form-card {
   background: #ffffff;
   padding: 25px 20px;
   border-radius: 15px;
@@ -51,16 +51,46 @@ body {
   font-weight: normal;
 }
 
+/* Тек Салауат мен Аида жирный кара түспен болады */
 .main-text strong {
   font-weight: bold;
   color: #000;
 }
 
+.share-text {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #b38e46;
+  margin: 15px 0 10px 0;
+  font-weight: normal;
+}
+
+.hosts-section {
+  margin: 15px 0 10px 0;
+  padding: 12px;
+  background: #fbf8f1;
+  border: 1px solid #e2d7c5;
+  border-radius: 10px;
+}
+
+.hosts-title {
+  font-weight: normal;
+  color: #b38e46;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.host-name, .host-parents {
+  font-size: 1.05rem;
+  font-weight: normal;
+  color: #333;
+  margin-top: 3px;
+}
+
 .event-details {
   border-top: 1px dashed #e2d7c5;
-  border-bottom: 1px dashed #e2d7c5;
-  padding: 15px 0;
-  margin: 15px 0;
+  padding-top: 15px;
+  margin-top: 15px;
 }
 
 .event-title {
@@ -81,56 +111,6 @@ body {
 .event-time {
   font-size: 1.1rem;
   color: #666;
-}
-
-/* Мекенжай блогы дәл ортада */
-.address-section {
-  margin: 15px 0;
-  padding-bottom: 15px;
-  border-bottom: 1px dashed #e2d7c5;
-}
-
-.address-title {
-  font-size: 1.3rem;
-  font-family: Georgia, serif;
-  color: #b38e46;
-  margin-bottom: 5px;
-}
-
-.address-text {
-  font-size: 1.15rem;
-  font-weight: 500;
-  color: #333;
-}
-
-.share-text {
-  font-size: 1.15rem;
-  font-style: italic;
-  color: #b38e46;
-  margin: 15px 0 10px 0;
-  font-weight: normal;
-}
-
-.hosts-section {
-  margin: 10px 0 5px 0;
-  padding: 12px;
-  background: #fbf8f1;
-  border: 1px solid #e2d7c5;
-  border-radius: 10px;
-}
-
-.hosts-title {
-  font-weight: normal;
-  color: #b38e46;
-  font-size: 1.1rem;
-  margin-bottom: 5px;
-}
-
-.host-name, .host-parents {
-  font-size: 1.05rem;
-  font-weight: normal;
-  color: #333;
-  margin-top: 3px;
 }
 
 h3 {
