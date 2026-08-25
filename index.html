@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Салауат & Аида — Тойға шақыру</title>
-  <!-- Подключение шрифтов -->
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -12,27 +12,27 @@
 </head>
 <body>
 
-  <!-- Аудио плеер -->
-  <audio id="bgMusic" src="miras-zhugunusov-feat.-kazybek-kuraiysh-ashypyn.mp3" loop preload="auto"></audio>
+  <!-- Аудио плеер (Убедись, что mp3 лежит в той же папке!) -->
+  <audio id="bgMusic" src="music.mp3" loop preload="auto"></audio>
 
   <div class="main-wrapper">
 
-    <!-- 1. Главная карточка (Hero Section) -->
+    <!-- 1. Главная карточка (Hero) -->
     <header class="hero-card">
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <p class="top-date">03.10.2026</p>
-        <h1 class="couple-names">САЛАУАТ<br><span>&</span><br>АИДА</h1>
+        <p class="top-date animate-element">03.10.2026</p>
+        <h1 class="couple-names animate-element">САЛАУАТ<br><span>&</span><br>АИДА</h1>
         
-        <!-- Кнопка плеера (винил) -->
-        <div class="player-container">
+        <!-- Кнопка винила -->
+        <div class="player-container animate-element">
           <button id="musicToggle" class="vinyl-disc" title="Музыканы қосу/өшіру">
             <span class="disc-center"></span>
           </button>
         </div>
         
-        <!-- Кнопка «бастау» с плавной прокруткой -->
-        <div id="scrollBtn" class="scroll-down-hint">
+        <!-- Кнопка «бастау» для автоскролла вниз -->
+        <div id="scrollBtn" class="scroll-down-hint animate-element">
           <span>бастау</span>
           <div class="arrow-down">∨</div>
         </div>
@@ -40,7 +40,7 @@
     </header>
 
     <!-- 2. Шақыру мәтіні -->
-    <section id="invitationSection" class="content-card invitation-section">
+    <section class="content-card invitation-section reveal-on-scroll">
       <h2 class="script-heading">Құрметті</h2>
       <p class="guest-categories">
         АҒАЙЫН-ТУЫС, БАУЫРЛАР,<br>
@@ -66,7 +66,7 @@
     </section>
 
     <!-- 3. Календарь -->
-    <section class="content-card calendar-section">
+    <section class="content-card calendar-section reveal-on-scroll">
       <h2 class="script-month">Қазан</h2>
       <div class="calendar-grid">
         <div class="day-name">ДҮ</div>
@@ -92,8 +92,8 @@
       </div>
     </section>
 
-    <!-- 4. Той бағдарламасы -->
-    <section class="content-card timeline-section">
+    <!-- 4. Таймлайн -->
+    <section class="content-card timeline-section reveal-on-scroll">
       <h2 class="script-heading">Той бағдарламасы:</h2>
       
       <div class="timeline">
@@ -112,7 +112,7 @@
     </section>
 
     <!-- 5. Таймер -->
-    <section class="content-card timer-card">
+    <section class="content-card timer-card reveal-on-scroll">
       <div class="timer-bg-overlay"></div>
       <div class="timer-content">
         <h2 class="timer-title">ТОЙ САЛТАНАТЫНА ДЕЙІН:</h2>
@@ -126,7 +126,7 @@
     </section>
 
     <!-- 6. Мекен-жайы -->
-    <section class="content-card location-section">
+    <section class="content-card location-section reveal-on-scroll">
       <h2 class="script-heading">Мекен-жайымыз:</h2>
       <p class="city-name">КУЛЬСАРЫ ҚАЛАСЫ</p>
       <p class="venue-name">«АЛТЫН САРАЙ»<br>МЕЙРАМХАНАСЫ</p>
@@ -139,13 +139,13 @@
     </section>
 
     <!-- 7. Той иелері -->
-    <section class="content-card hosts-card">
+    <section class="content-card hosts-card reveal-on-scroll">
       <h2 class="script-heading">Той иелері:</h2>
       <p class="host-names">Әжесі Мерузия<br>Біржан & Әлия</p>
     </section>
 
     <!-- 8. RSVP Форма -->
-    <section class="content-card rsvp-section">
+    <section class="content-card rsvp-section reveal-on-scroll">
       <h2 class="script-heading">Сауалнама:</h2>
       <p class="rsvp-title">ТОЙҒА КЕЛУІҢІЗДІ РАСТАУЫҢЫЗДЫ СҰРАЙМЫЗ</p>
       <p class="rsvp-sub">Аты-жөніңіз (жұбыңызбен келетін болсаңыз, екеуіңіздің де атыңызды жазуыңызды өтінеміз)</p>
@@ -173,7 +173,7 @@
     </section>
 
     <!-- 9. Футер -->
-    <footer class="content-card footer-section">
+    <footer id="footerSection" class="content-card footer-section reveal-on-scroll">
       <h2 class="script-footer">Қадірлі қонағымыз болыңыздар!</h2>
     </footer>
 
@@ -183,15 +183,15 @@
     const music = document.getElementById('bgMusic');
     const musicBtn = document.getElementById('musicToggle');
     const scrollBtn = document.getElementById('scrollBtn');
-    const targetSection = document.getElementById('invitationSection');
     let isPlaying = false;
+    let autoScrollInterval = null;
 
-    // Включение/Выключение музыки
+    // Управление музыкой
     function playMusic() {
       music.play().then(() => {
         isPlaying = true;
         musicBtn.classList.add('spinning');
-      }).catch(err => console.log("Ошибка воспроизведения:", err));
+      }).catch(err => console.log("Браузер автоплей бұғаттады:", err));
     }
 
     function pauseMusic() {
@@ -200,38 +200,64 @@
       musicBtn.classList.remove('spinning');
     }
 
-    // Нажатие на виниловую пластинку
     musicBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      if (isPlaying) {
-        pauseMusic();
-      } else {
-        playMusic();
-      }
+      if (isPlaying) pauseMusic();
+      else playMusic();
     });
 
-    // Плавный скролл при нажатии на "бастау"
-    scrollBtn.addEventListener('click', () => {
-      if (!isPlaying) {
-        playMusic();
-      }
-      targetSection.scrollIntoView({ behavior: 'smooth' });
-    });
+    // Автоматическая медленная прокрутка до самого низа
+    function smoothScrollToBottom(duration = 18000) {
+      const start = window.pageYOffset;
+      const target = document.documentElement.scrollHeight - window.innerHeight;
+      const distance = target - start;
+      let startTime = null;
 
-    // Автоматический запуск музыки при первом взаимодействии со страницей
-    function handleFirstTouch() {
-      if (!isPlaying) {
-        playMusic();
+      function animation(currentTime) {
+        if (!startTime) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+
+        // Линейный плавающий скролл
+        window.scrollTo(0, start + distance * progress);
+
+        if (progress < 1 && autoScrollInterval) {
+          requestAnimationFrame(animation);
+        }
       }
-      document.removeEventListener('click', handleFirstTouch);
-      document.removeEventListener('touchstart', handleFirstTouch);
+
+      autoScrollInterval = true;
+      requestAnimationFrame(animation);
     }
-    document.addEventListener('click', handleFirstTouch);
-    document.addEventListener('touchstart', handleFirstTouch);
 
-    // Таймер обратного отсчета
+    // Остановка автоскролла при ручном пользовании
+    function stopAutoScroll() {
+      autoScrollInterval = false;
+    }
+
+    window.addEventListener('wheel', stopAutoScroll, { passive: true });
+    window.addEventListener('touchstart', stopAutoScroll, { passive: true });
+
+    // Клик на кнопку "бастау"
+    scrollBtn.addEventListener('click', () => {
+      if (!isPlaying) playMusic();
+      smoothScrollToBottom(16000); // 16 секунд непрерывного плавного спуска
+    });
+
+    // Анимация элементов при прокрутке (Intersection Observer)
+    const observerOptions = { threshold: 0.15 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+
+    // Таймер
     const targetDate = new Date("October 3, 2026 19:00:00").getTime();
-
     setInterval(() => {
       const now = new Date().getTime();
       const diff = targetDate - now;
