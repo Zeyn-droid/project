@@ -18,11 +18,11 @@ body {
   max-width: 500px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 25px;
   text-align: center;
 }
 
-.invitation-card, .info-card, .timer-card, .form-card {
+.invitation-card, .timer-card, .form-card {
   background: #ffffff;
   padding: 25px 20px;
   border-radius: 15px;
@@ -47,12 +47,20 @@ body {
   font-size: 1.1rem;
   line-height: 1.6;
   color: #222;
+  margin-bottom: 15px;
   font-weight: normal;
 }
 
 .main-text strong {
   font-weight: bold;
   color: #000;
+}
+
+.event-details {
+  border-top: 1px dashed #e2d7c5;
+  border-bottom: 1px dashed #e2d7c5;
+  padding: 15px 0;
+  margin: 15px 0;
 }
 
 .event-title {
@@ -75,15 +83,36 @@ body {
   color: #666;
 }
 
+/* Мекенжай блогы дәл ортада */
+.address-section {
+  margin: 15px 0;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed #e2d7c5;
+}
+
+.address-title {
+  font-size: 1.3rem;
+  font-family: Georgia, serif;
+  color: #b38e46;
+  margin-bottom: 5px;
+}
+
+.address-text {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #333;
+}
+
 .share-text {
   font-size: 1.15rem;
   font-style: italic;
   color: #b38e46;
-  margin-bottom: 15px;
+  margin: 15px 0 10px 0;
   font-weight: normal;
 }
 
 .hosts-section {
+  margin: 10px 0 5px 0;
   padding: 12px;
   background: #fbf8f1;
   border: 1px solid #e2d7c5;
@@ -171,6 +200,11 @@ button {
 
 button:hover {
   background-color: #967435;
+}
+
+.form-sub {
+  font-size: 0.9rem;
+  color: #666;
 }
 
 .form-sub {
