@@ -18,7 +18,7 @@ body {
   max-width: 500px;
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 20px;
   text-align: center;
 }
 
@@ -47,50 +47,12 @@ body {
   font-size: 1.1rem;
   line-height: 1.6;
   color: #222;
-  margin-bottom: 15px;
   font-weight: normal;
 }
 
-/* Тек Салауат мен Аида жирный кара түспен болады */
 .main-text strong {
   font-weight: bold;
   color: #000;
-}
-
-.share-text {
-  font-size: 1.15rem;
-  font-style: italic;
-  color: #b38e46;
-  margin: 15px 0 10px 0;
-  font-weight: normal;
-}
-
-.hosts-section {
-  margin: 15px 0 10px 0;
-  padding: 12px;
-  background: #fbf8f1;
-  border: 1px solid #e2d7c5;
-  border-radius: 10px;
-}
-
-.hosts-title {
-  font-weight: normal;
-  color: #b38e46;
-  font-size: 1.1rem;
-  margin-bottom: 5px;
-}
-
-.host-name, .host-parents {
-  font-size: 1.05rem;
-  font-weight: normal;
-  color: #333;
-  margin-top: 3px;
-}
-
-.event-details {
-  border-top: 1px dashed #e2d7c5;
-  padding-top: 15px;
-  margin-top: 15px;
 }
 
 .event-title {
@@ -111,6 +73,35 @@ body {
 .event-time {
   font-size: 1.1rem;
   color: #666;
+}
+
+.share-text {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #b38e46;
+  margin-bottom: 15px;
+  font-weight: normal;
+}
+
+.hosts-section {
+  padding: 12px;
+  background: #fbf8f1;
+  border: 1px solid #e2d7c5;
+  border-radius: 10px;
+}
+
+.hosts-title {
+  font-weight: normal;
+  color: #b38e46;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.host-name, .host-parents {
+  font-size: 1.05rem;
+  font-weight: normal;
+  color: #333;
+  margin-top: 3px;
 }
 
 h3 {
@@ -180,11 +171,6 @@ button {
 
 button:hover {
   background-color: #967435;
-}
-
-.form-sub {
-  font-size: 0.9rem;
-  color: #666;
 }
 
 .form-sub {
