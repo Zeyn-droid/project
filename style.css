@@ -1,3 +1,25 @@
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ... остальные стили оставляем прежними ... */
+
+.scroll-down-hint {
+  margin-top: 25px;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: lowercase;
+  opacity: 0.8;
+  cursor: pointer; /* Делает элемент кликабельным */
+  user-select: none;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
