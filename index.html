@@ -3,111 +3,227 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Салауат & Аида Тойға шақыру</title>
-  <link rel="stylesheet" href="style.css?v=8.0">
+  <title>Салауат & Аида — Тойға шақыру</title>
+  <!-- Подключение шрифтов -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="container">
-    
-    <!-- Шақыру мәтіні -->
-    <section class="invitation-card">
-      <h2 class="title">Құрметті</h2>
-      <p class="subtitle">
-        ағайын-туыс, бауырлар, нағашы-жиен,<br>
-        бөлелер, құда-жекжат,<br>
-        дос-жаран, әріптестер, көршілер!
+  <!-- Аудио плеер -->
+  <audio id="bgMusic" src="miras-zhugunusov-feat.-kazybek-kuraiysh-ashypyn.mp3" loop></audio>
+
+  <div class="main-wrapper">
+
+    <!-- 1. Главная карточка (Hero Section) -->
+    <header class="hero-card">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="top-date">03.10.2026</p>
+        <h1 class="couple-names">САЛАУАТ<br><span>&</span><br>АИДА</h1>
+        
+        <!-- Кнопка плеера -->
+        <div class="player-container">
+          <button id="musicToggle" class="vinyl-disc" title="Музыканы қосу/өшіру">
+            <span class="disc-center"></span>
+          </button>
+        </div>
+        
+        <div class="scroll-down-hint">
+          <span>бастау</span>
+          <div class="arrow-down">∨</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. Шақыру мәтіні -->
+    <section class="content-card invitation-section">
+      <h2 class="script-heading">Құрметті</h2>
+      <p class="guest-categories">
+        АҒАЙЫН-ТУЫС, БАУЫРЛАР,<br>
+        ҚҰДА-ЖЕКЖАТ,<br>
+        НАҒАШЫ-ЖИЕН, БӨЛЕЛЕР,<br>
+        ДОС-ЖАРАН, КӨРШІЛЕР<br>
+        МЕН ӘРІПТЕСТЕР!
       </p>
-      <p class="main-text">
-        Сіздерді<br>
-        баламыз <strong>Салауат</strong> пен келініміз <strong>Аиданың</strong><br>
-        үйлену тойына арналған салтанатты<br>
-        дастарханымыздың қадірлі қонағы болуға<br>
-        шақырамыз!
-      </p>
-
-      <!-- Той Салтанаты -->
-      <div class="event-details">
-        <h3 class="event-title">Той Салтанаты</h3>
-        <p class="event-date">03.10.2026</p>
-        <p class="event-time">Уақыты: 19:00</p>
-      </div>
-
-         <!-- Мекенжайы -->
-    <section class="info-card">
-      <h3>Мекенжайы:</h3>
-      <p>«Алтын Сарай» мейрамханасы</p>
-    </section>
-
-      <p class="share-text">Бізбен бірге қуанышымызды бөлісіңіз!</p>
-
-      <!-- Той Иелері -->
-      <div class="hosts-section">
-        <p class="hosts-title">Той Иелері:</p>
-        <p class="host-name">Әжесі Мерузия</p>
-        <p class="host-parents">Біржан & Әлия</p>
-      </div>
-    </section>
-
-    <!-- Таймер -->
-    <section class="timer-card">
-      <h3>Тойдың басталуына қалды:</h3>
-      <div id="timer" class="timer-grid">
-        <div class="time-box"><span id="days">00</span><small>күн</small></div>
-        <div class="time-box"><span id="hours">00</span><small>сағат</small></div>
-        <div class="time-box"><span id="minutes">00</span><small>минут</small></div>
-        <div class="time-box"><span id="seconds">00</span><small>секунд</small></div>
-      </div>
-    </section>
-
-    <!-- Форма -->
-    <section class="form-card">
-      <h3>Тойға келетініңізді растаңыз</h3>
-      <p class="form-sub">Өтініш, 2026 жылдың 20 қыркүйегіне дейін жауап берсеңіздер</p>
       
-      <form action="https://formspree.io/f/mvkpjzbb" method="POST">
-        <input type="text" name="name" placeholder="Аты-жөніңіз" required>
-        
-        <select name="attendance" required>
-          <option value="" disabled selected>Тойға келесіз бе?</option>
-          <option value="Иә, келемін">Иә, келемін</option>
-          <option value="Жұбыммен барамын">Жұбыммен барамын</option>
-          <option value="Өкінішке орай, бара алмаймын">Өкінішке орай, бара алмаймын</option>
-        </select>
-        
-        <textarea name="message" placeholder="Ақ тілектер мен тілектеріңіз (міндетті емес)"></textarea>
-        
-        <button type="submit">Жауапты жіберу</button>
+      <p class="invite-label">СІЗДЕРДІ</p>
+      
+      <p class="hosts-detail">
+        баламыз <span class="highlight-script">Салауат</span> пен<br>
+        келініміз <span class="highlight-script">Аиданың</span>
+      </p>
+
+      <p class="event-desc">
+        ҮЙЛЕНУ ТОЙЫНА АРНАЛҒАН<br>
+        АҚ ДАСТАРХАНЫМЫЗДЫҢ<br>
+        ҚАДІРЛІ ҚОНАҒЫ БОЛУҒА<br>
+        ШАҚЫРАМЫЗ!
+      </p>
+    </section>
+
+    <!-- 3. Календарь -->
+    <section class="content-card calendar-section">
+      <h2 class="script-month">Қазан</h2>
+      <div class="calendar-grid">
+        <div class="day-name">ДҮ</div>
+        <div class="day-name">СЕС</div>
+        <div class="day-name">СӘР</div>
+        <div class="day-name">БЕЙ</div>
+        <div class="day-name">ЖҰМ</div>
+        <div class="day-name">СЕН</div>
+        <div class="day-name">ЖЕК</div>
+
+        <!-- Дни месяца (октябрь 2026) -->
+        <div class="day"></div><div class="day"></div><div class="day"></div>
+        <div class="day">1</div><div class="day">2</div>
+        <div class="day wedding-day">3</div><div class="day">4</div>
+        <div class="day">5</div><div class="day">6</div><div class="day">7</div>
+        <div class="day">8</div><div class="day">9</div><div class="day">10</div>
+        <div class="day">11</div><div class="day">12</div><div class="day">13</div>
+        <div class="day">14</div><div class="day">15</div><div class="day">16</div>
+        <div class="day">17</div><div class="day">18</div><div class="day">19</div>
+        <div class="day">20</div><div class="day">21</div><div class="day">22</div>
+        <div class="day">23</div><div class="day">24</div><div class="day">25</div>
+        <div class="day">26</div><div class="day">27</div><div class="day">28</div>
+        <div class="day">29</div><div class="day">30</div><div class="day">31</div>
+      </div>
+    </section>
+
+    <!-- 4. Той бағдарламасы (Timeline) -->
+    <section class="content-card timeline-section">
+      <h2 class="script-heading">Той бағдарламасы:</h2>
+      
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-heart">♥</div>
+          <div class="timeline-time">19:00</div>
+          <div class="timeline-text">Қонақтардың жиналуы</div>
+        </div>
+        <div class="timeline-line"></div>
+        <div class="timeline-item">
+          <div class="timeline-heart">♥</div>
+          <div class="timeline-time">19:30</div>
+          <div class="timeline-text">Тойдың басталуы</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Обратный отсчет (Timer) -->
+    <section class="content-card timer-card">
+      <div class="timer-bg-overlay"></div>
+      <div class="timer-content">
+        <h2 class="timer-title">ТОЙ САЛТАНАТЫНА ДЕЙІН:</h2>
+        <div class="timer-grid" id="timer">
+          <div class="time-box"><span id="days">00</span><small>КҮН</small></div>
+          <div class="time-box"><span id="hours">00</span><small>САҒАТ</small></div>
+          <div class="time-box"><span id="minutes">00</span><small>МИНУТ</small></div>
+          <div class="time-box"><span id="seconds">00</span><small>СЕКУНД</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Мекен-жайы -->
+    <section class="content-card location-section">
+      <h2 class="script-heading">Мекен-жайымыз:</h2>
+      <p class="city-name">КУЛЬСАРЫ ҚАЛАСЫ</p>
+      <p class="venue-name">«АЛТЫН САРАЙ»<br>МЕЙРАМХАНАСЫ</p>
+      
+      <div class="venue-image">
+        <!-- Красивое фото ресторана или абстракция -->
+        <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80" alt="Мейрамхана">
+      </div>
+
+      <a href="https://2gis.kz" target="_blank" class="map-button">КАРТАНЫ АШУ</a>
+    </section>
+
+    <!-- 7. Той иелері -->
+    <section class="content-card hosts-card">
+      <h2 class="script-heading">Той иелері:</h2>
+      <p class="host-names">Әжесі Мерузия<br>Біржан & Әлия</p>
+    </section>
+
+    <!-- 8. Форма подтверждения (RSVP) -->
+    <section class="content-card rsvp-section">
+      <h2 class="script-heading">Сауалнама:</h2>
+      <p class="rsvp-title">ТОЙҒА КЕЛУІҢІЗДІ РАСТАУЫҢЫЗДЫ СҰРАЙМЫЗ</p>
+      <p class="rsvp-sub">Аты-жөніңіз (жұбыңызбен келетін болсаңыз, екеуіңіздің де атыңызды жазуыңызды өтінеміз)</p>
+
+      <form action="https://formspree.io/f/mvkpjzbb" method="POST" class="rsvp-form">
+        <input type="text" name="guest_names" placeholder="Аты-жөніңіз..." required>
+
+        <div class="radio-group">
+          <label class="radio-label">
+            <input type="radio" name="attendance" value="Қатысамын" required>
+            <span>Қатысамын</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="attendance" value="Жұбыммен келемін">
+            <span>Жұбыммен келемін</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="attendance" value="Өкінішке орай, келе алмаймын">
+            <span>Өкінішке орай, келе алмаймын</span>
+          </label>
+        </div>
+
+        <button type="submit" class="submit-btn">Жіберу</button>
       </form>
     </section>
+
+    <!-- 9. Футер -->
+    <footer class="content-card footer-section">
+      <h2 class="script-footer">Қадірлі қонағымыз болыңыздар!</h2>
+    </footer>
 
   </div>
 
   <script>
-    // Таймер
+    // 1. Плеер и проигрывание
+    const music = document.getElementById('bgMusic');
+    const musicBtn = document.getElementById('musicToggle');
+    let isPlaying = false;
+
+    function toggleMusic() {
+      if (isPlaying) {
+        music.pause();
+        musicBtn.classList.remove('spinning');
+      } else {
+        music.play().then(() => {
+          musicBtn.classList.add('spinning');
+        }).catch(err => console.log("Автоплей бұғатталды:", err));
+      }
+      isPlaying = !isPlaying;
+    }
+
+    musicBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMusic();
+    });
+
+    // Первый клик по экрану запускает музыку
+    document.body.addEventListener('click', () => {
+      if (!isPlaying) {
+        toggleMusic();
+      }
+    }, { once: true });
+
+    // 2. Таймер
     const targetDate = new Date("October 3, 2026 19:00:00").getTime();
 
-    const countdown = setInterval(() => {
+    setInterval(() => {
       const now = new Date().getTime();
-      const difference = targetDate - now;
+      const diff = targetDate - now;
 
-      if (difference < 0) {
-        clearInterval(countdown);
-        document.getElementById("timer").innerHTML = "<p>Той басталды!</p>";
-        return;
-      }
+      if (diff < 0) return;
 
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-      document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-      document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-      document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-      document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+      document.getElementById("days").innerText = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
+      document.getElementById("hours").innerText = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+      document.getElementById("minutes").innerText = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+      document.getElementById("seconds").innerText = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
     }, 1000);
   </script>
-
 </body>
 </html>
