@@ -2,192 +2,436 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  background-color: #fdfbf7;
+  background-color: #121212;
   color: #333;
+  font-family: 'Montserrat', sans-serif;
   display: flex;
   justify-content: center;
-  padding: 20px 10px;
+  align-items: center;
+  min-height: 100vh;
 }
 
-.container {
+/* Общий контейнер во весь экран мобилки */
+.main-wrapper {
   width: 100%;
-  max-width: 500px;
+  max-width: 430px;
+  background-color: #fcfcfc;
+  min-height: 100vh;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
   display: flex;
   flex-direction: column;
-  gap: 25px;
+}
+
+/* 1. HERO SECTION */
+.hero-card {
+  position: relative;
+  height: 90vh;
+  min-height: 550px;
+  /* Красивое фоновое фото рук с кольцами */
+  background: url('https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=1000&q=80') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  color: #fff;
 }
 
-.invitation-card, .info-card, .timer-card, .form-card {
-  background: #ffffff;
-  padding: 25px 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.45);
 }
 
-.title {
-  font-size: 2rem;
-  font-family: Georgia, serif;
-  color: #b38e46;
-  margin-bottom: 10px;
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
-.subtitle {
-  font-size: 1.05rem;
-  line-height: 1.6;
-  color: #555;
-  margin-bottom: 15px;
+.top-date {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  letter-spacing: 4px;
 }
 
-.main-text {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #222;
-  margin-bottom: 15px;
-  font-weight: normal;
+.couple-names {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 6px;
 }
 
-/* Тек Салауат мен Аида жирный кара түспен болады */
-.main-text strong {
-  font-weight: bold;
-  color: #000;
-}
-
-.share-text {
-  font-size: 1.15rem;
+.couple-names span {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
   font-style: italic;
-  color: #b38e46;
-  margin: 15px 0 10px 0;
-  font-weight: normal;
 }
 
-.hosts-section {
-  margin: 15px 0 10px 0;
-  padding: 12px;
-  background: #fbf8f1;
-  border: 1px solid #e2d7c5;
-  border-radius: 10px;
-}
-
-.hosts-title {
-  font-weight: normal;
-  color: #b38e46;
-  font-size: 1.1rem;
-  margin-bottom: 5px;
-}
-
-.host-name, .host-parents {
-  font-size: 1.05rem;
-  font-weight: normal;
-  color: #333;
-  margin-top: 3px;
-}
-
-.event-details {
-  border-top: 1px dashed #e2d7c5;
-  padding-top: 15px;
+/* Виниловый плеер */
+.vinyl-disc {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #333 20%, #111 21%, #111 40%, #222 41%, #111 70%);
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
   margin-top: 15px;
 }
 
-.event-title {
-  font-size: 1.4rem;
-  font-family: Georgia, serif;
+.disc-center {
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  border: 4px solid #b38e46;
+}
+
+.vinyl-disc.spinning {
+  animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+.scroll-down-hint {
+  margin-top: 25px;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: lowercase;
+  opacity: 0.8;
+}
+
+.arrow-down {
+  font-size: 1.2rem;
+  margin-top: 5px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-8px); }
+  60% { transform: translateY(-4px); }
+}
+
+/* Общие стили для секций */
+.content-card {
+  padding: 40px 25px;
+  text-align: center;
+  border-bottom: 1px solid #f0ece1;
+  background: #fff;
+}
+
+.script-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 2.3rem;
+  font-weight: 400;
+  color: #2c2c2c;
+  margin-bottom: 20px;
+}
+
+/* 2. ШАҚЫРУ МӘТІНІ */
+.guest-categories {
+  font-size: 0.85rem;
+  line-height: 2;
+  letter-spacing: 2px;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.invite-label {
+  font-size: 0.9rem;
+  letter-spacing: 4px;
+  color: #888;
+  margin-bottom: 15px;
+}
+
+.hosts-detail {
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+  line-height: 1.8;
+}
+
+.highlight-script {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 2rem;
   color: #b38e46;
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.event-desc {
+  font-size: 0.85rem;
+  line-height: 2;
+  letter-spacing: 2px;
+  color: #333;
+  font-weight: 500;
+}
+
+/* 3. КАЛЕНДАРЬ */
+.script-month {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 2.5rem;
+  color: #1a2b3c;
+  margin-bottom: 15px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.day-name {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #888;
+  padding-bottom: 10px;
+}
+
+.day {
+  font-size: 0.95rem;
+  padding: 8px 0;
+  color: #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Обведенная дата 3 октября */
+.wedding-day {
+  border: 1px dashed #b38e46;
+  border-radius: 50%;
+  color: #b38e46;
+  font-weight: 600;
+  position: relative;
+}
+
+/* 4. ТАЙМЛАЙН */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.timeline-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timeline-heart {
+  color: #b38e46;
+  font-size: 1.2rem;
   margin-bottom: 5px;
 }
 
-.event-date {
-  font-size: 1.6rem;
-  font-weight: normal;
-  letter-spacing: 2px;
-  color: #333;
-  margin-bottom: 3px;
-}
-
-.event-time {
-  font-size: 1.1rem;
-  color: #666;
-}
-
-h3 {
+.timeline-time {
   font-size: 1.3rem;
-  color: #b38e46;
-  margin-bottom: 12px;
+  font-weight: 500;
+  color: #2c2c2c;
+}
+
+.timeline-text {
+  font-size: 0.85rem;
+  color: #666;
+  letter-spacing: 1px;
+  margin-top: 3px;
+}
+
+.timeline-line {
+  width: 1px;
+  height: 40px;
+  background: #e0d7c6;
+}
+
+/* 5. ТАЙМЕР */
+.timer-card {
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
+  color: #fff;
+  padding: 50px 20px;
+}
+
+.timer-bg-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.timer-content {
+  position: relative;
+  z-index: 2;
+}
+
+.timer-title {
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  margin-bottom: 25px;
+  font-weight: 400;
 }
 
 .timer-grid {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
+  gap: 15px;
 }
 
 .time-box {
-  background: #fbf8f1;
-  border: 1px solid #e2d7c5;
-  padding: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  padding: 12px 10px;
   border-radius: 8px;
   min-width: 65px;
+  border: 1px solid rgba(255,255,255,0.2);
 }
 
 .time-box span {
   display: block;
-  font-size: 1.4rem;
-  font-weight: normal;
-  color: #b38e46;
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 
 .time-box small {
-  font-size: 0.75rem;
-  color: #777;
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  opacity: 0.8;
 }
 
-form {
+/* 6. ЛОКАЦИЯ */
+.city-name {
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  color: #777;
+  margin-bottom: 5px;
+}
+
+.venue-name {
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.venue-image {
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.venue-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.map-button {
+  display: inline-block;
+  background: #111;
+  color: #fff;
+  padding: 14px 30px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  transition: 0.3s;
+}
+
+/* 7. ТОЙ ИЕЛЕРІ */
+.host-names {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+  letter-spacing: 1px;
+}
+
+/* 8. RSVP ФОРМА */
+.rsvp-title {
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.rsvp-sub {
+  font-size: 0.8rem;
+  color: #777;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.rsvp-form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-top: 15px;
+  gap: 15px;
 }
 
-input, select, textarea {
+.rsvp-form input[type="text"] {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  outline: none;
+  background: #fafafa;
 }
 
-textarea {
-  height: 80px;
-  resize: vertical;
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+  margin: 10px 0;
 }
 
-button {
-  background-color: #b38e46;
-  color: white;
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: #444;
+  cursor: pointer;
+}
+
+.submit-btn {
+  background: #111;
+  color: #fff;
   border: none;
   padding: 14px;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: normal;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
   cursor: pointer;
-  transition: background 0.3s;
 }
 
-button:hover {
-  background-color: #967435;
-}
-
-.form-sub {
-  font-size: 0.9rem;
-  color: #666;
-}
-
-.form-sub {
-  font-size: 0.9rem;
-  color: #666;
+/* 9. ФУТЕР */
+.script-footer {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 2.2rem;
+  color: #b38e46;
+  font-weight: 400;
 }
