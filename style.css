@@ -47,13 +47,50 @@ body {
   font-size: 1.1rem;
   line-height: 1.6;
   color: #222;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  font-weight: normal;
+}
+
+/* Тек Салауат мен Аида жирный кара түспен болады */
+.main-text strong {
+  font-weight: bold;
+  color: #000;
+}
+
+.share-text {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #b38e46;
+  margin: 15px 0 10px 0;
+  font-weight: normal;
+}
+
+.hosts-section {
+  margin: 15px 0 10px 0;
+  padding: 12px;
+  background: #fbf8f1;
+  border: 1px solid #e2d7c5;
+  border-radius: 10px;
+}
+
+.hosts-title {
+  font-weight: normal;
+  color: #b38e46;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.host-name, .host-parents {
+  font-size: 1.05rem;
+  font-weight: normal;
+  color: #333;
+  margin-top: 3px;
 }
 
 .event-details {
   border-top: 1px dashed #e2d7c5;
   padding-top: 15px;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .event-title {
@@ -65,7 +102,7 @@ body {
 
 .event-date {
   font-size: 1.6rem;
-  font-weight: bold;
+  font-weight: normal;
   letter-spacing: 2px;
   color: #333;
   margin-bottom: 3px;
@@ -100,7 +137,7 @@ h3 {
 .time-box span {
   display: block;
   font-size: 1.4rem;
-  font-weight: bold;
+  font-weight: normal;
   color: #b38e46;
 }
 
@@ -136,13 +173,18 @@ button {
   padding: 14px;
   border-radius: 8px;
   font-size: 1.1rem;
-  font-weight: bold;
+  font-weight: normal;
   cursor: pointer;
   transition: background 0.3s;
 }
 
 button:hover {
   background-color: #967435;
+}
+
+.form-sub {
+  font-size: 0.9rem;
+  color: #666;
 }
 
 .form-sub {
