@@ -13,7 +13,7 @@
 <body>
 
   <!-- Аудио плеер -->
-  <audio id="bgMusic" src="miras-zhugunusov-feat.-kazybek-kuraiysh-ashypyn.mp3" loop></audio>
+  <audio id="bgMusic" src="miras-zhugunusov-feat.-kazybek-kuraiysh-ashypyn.mp3" loop preload="auto"></audio>
 
   <div class="main-wrapper">
 
@@ -24,14 +24,15 @@
         <p class="top-date">03.10.2026</p>
         <h1 class="couple-names">САЛАУАТ<br><span>&</span><br>АИДА</h1>
         
-        <!-- Кнопка плеера -->
+        <!-- Кнопка плеера (винил) -->
         <div class="player-container">
           <button id="musicToggle" class="vinyl-disc" title="Музыканы қосу/өшіру">
             <span class="disc-center"></span>
           </button>
         </div>
         
-        <div class="scroll-down-hint">
+        <!-- Кнопка «бастау» с плавной прокруткой -->
+        <div id="scrollBtn" class="scroll-down-hint">
           <span>бастау</span>
           <div class="arrow-down">∨</div>
         </div>
@@ -39,7 +40,7 @@
     </header>
 
     <!-- 2. Шақыру мәтіні -->
-    <section class="content-card invitation-section">
+    <section id="invitationSection" class="content-card invitation-section">
       <h2 class="script-heading">Құрметті</h2>
       <p class="guest-categories">
         АҒАЙЫН-ТУЫС, БАУЫРЛАР,<br>
@@ -76,7 +77,6 @@
         <div class="day-name">СЕН</div>
         <div class="day-name">ЖЕК</div>
 
-        <!-- Дни месяца (октябрь 2026) -->
         <div class="day"></div><div class="day"></div><div class="day"></div>
         <div class="day">1</div><div class="day">2</div>
         <div class="day wedding-day">3</div><div class="day">4</div>
@@ -92,7 +92,7 @@
       </div>
     </section>
 
-    <!-- 4. Той бағдарламасы (Timeline) -->
+    <!-- 4. Той бағдарламасы -->
     <section class="content-card timeline-section">
       <h2 class="script-heading">Той бағдарламасы:</h2>
       
@@ -111,7 +111,7 @@
       </div>
     </section>
 
-    <!-- 5. Обратный отсчет (Timer) -->
+    <!-- 5. Таймер -->
     <section class="content-card timer-card">
       <div class="timer-bg-overlay"></div>
       <div class="timer-content">
@@ -132,7 +132,6 @@
       <p class="venue-name">«АЛТЫН САРАЙ»<br>МЕЙРАМХАНАСЫ</p>
       
       <div class="venue-image">
-        <!-- Красивое фото ресторана или абстракция -->
         <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80" alt="Мейрамхана">
       </div>
 
@@ -145,7 +144,7 @@
       <p class="host-names">Әжесі Мерузия<br>Біржан & Әлия</p>
     </section>
 
-    <!-- 8. Форма подтверждения (RSVP) -->
+    <!-- 8. RSVP Форма -->
     <section class="content-card rsvp-section">
       <h2 class="script-heading">Сауалнама:</h2>
       <p class="rsvp-title">ТОЙҒА КЕЛУІҢІЗДІ РАСТАУЫҢЫЗДЫ СҰРАЙМЫЗ</p>
@@ -181,36 +180,56 @@
   </div>
 
   <script>
-    // 1. Плеер и проигрывание
     const music = document.getElementById('bgMusic');
     const musicBtn = document.getElementById('musicToggle');
+    const scrollBtn = document.getElementById('scrollBtn');
+    const targetSection = document.getElementById('invitationSection');
     let isPlaying = false;
 
-    function toggleMusic() {
-      if (isPlaying) {
-        music.pause();
-        musicBtn.classList.remove('spinning');
-      } else {
-        music.play().then(() => {
-          musicBtn.classList.add('spinning');
-        }).catch(err => console.log("Автоплей бұғатталды:", err));
-      }
-      isPlaying = !isPlaying;
+    // Включение/Выключение музыки
+    function playMusic() {
+      music.play().then(() => {
+        isPlaying = true;
+        musicBtn.classList.add('spinning');
+      }).catch(err => console.log("Ошибка воспроизведения:", err));
     }
 
+    function pauseMusic() {
+      music.pause();
+      isPlaying = false;
+      musicBtn.classList.remove('spinning');
+    }
+
+    // Нажатие на виниловую пластинку
     musicBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      toggleMusic();
+      if (isPlaying) {
+        pauseMusic();
+      } else {
+        playMusic();
+      }
     });
 
-    // Первый клик по экрану запускает музыку
-    document.body.addEventListener('click', () => {
+    // Плавный скролл при нажатии на "бастау"
+    scrollBtn.addEventListener('click', () => {
       if (!isPlaying) {
-        toggleMusic();
+        playMusic();
       }
-    }, { once: true });
+      targetSection.scrollIntoView({ behavior: 'smooth' });
+    });
 
-    // 2. Таймер
+    // Автоматический запуск музыки при первом взаимодействии со страницей
+    function handleFirstTouch() {
+      if (!isPlaying) {
+        playMusic();
+      }
+      document.removeEventListener('click', handleFirstTouch);
+      document.removeEventListener('touchstart', handleFirstTouch);
+    }
+    document.addEventListener('click', handleFirstTouch);
+    document.addEventListener('touchstart', handleFirstTouch);
+
+    // Таймер обратного отсчета
     const targetDate = new Date("October 3, 2026 19:00:00").getTime();
 
     setInterval(() => {
