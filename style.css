@@ -1,25 +1,3 @@
-html {
-  scroll-behavior: smooth;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-/* ... остальные стили оставляем прежними ... */
-
-.scroll-down-hint {
-  margin-top: 25px;
-  font-size: 0.85rem;
-  letter-spacing: 3px;
-  text-transform: lowercase;
-  opacity: 0.8;
-  cursor: pointer; /* Делает элемент кликабельным */
-  user-select: none;
-}
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -34,9 +12,9 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
-/* Общий контейнер во весь экран мобилки */
 .main-wrapper {
   width: 100%;
   max-width: 430px;
@@ -47,12 +25,11 @@ body {
   flex-direction: column;
 }
 
-/* 1. HERO SECTION */
+/* 1. HERO CARD */
 .hero-card {
   position: relative;
-  height: 90vh;
+  height: 95vh;
   min-height: 550px;
-  /* Красивое фоновое фото рук с кольцами */
   background: url('https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=1000&q=80') center/cover no-repeat;
   display: flex;
   align-items: center;
@@ -96,25 +73,30 @@ body {
   font-style: italic;
 }
 
-/* Виниловый плеер */
+/* Винил плей */
 .vinyl-disc {
-  width: 70px;
-  height: 70px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
   background: radial-gradient(circle, #333 20%, #111 21%, #111 40%, #222 41%, #111 70%);
-  border: 3px solid rgba(255, 255, 255, 0.8);
+  border: 3px solid rgba(255, 255, 255, 0.85);
   position: relative;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
-  margin-top: 15px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+  margin-top: 10px;
+  transition: transform 0.3s;
+}
+
+.vinyl-disc:hover {
+  transform: scale(1.05);
 }
 
 .disc-center {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   background: #fff;
   border-radius: 50%;
   border: 4px solid #b38e46;
@@ -129,11 +111,13 @@ body {
 }
 
 .scroll-down-hint {
-  margin-top: 25px;
+  margin-top: 20px;
   font-size: 0.85rem;
   letter-spacing: 3px;
   text-transform: lowercase;
-  opacity: 0.8;
+  opacity: 0.9;
+  cursor: pointer;
+  user-select: none;
 }
 
 .arrow-down {
@@ -148,12 +132,23 @@ body {
   60% { transform: translateY(-4px); }
 }
 
-/* Общие стили для секций */
+/* Стили и Анимации Проявления */
 .content-card {
-  padding: 40px 25px;
+  padding: 45px 25px;
   text-align: center;
   border-bottom: 1px solid #f0ece1;
   background: #fff;
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(35px) scale(0.98);
+  transition: all 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.reveal-on-scroll.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .script-heading {
@@ -165,7 +160,7 @@ body {
   margin-bottom: 20px;
 }
 
-/* 2. ШАҚЫРУ МӘТІНІ */
+/* ШАҚЫРУ МӘТІНІ */
 .guest-categories {
   font-size: 0.85rem;
   line-height: 2;
@@ -205,7 +200,7 @@ body {
   font-weight: 500;
 }
 
-/* 3. КАЛЕНДАРЬ */
+/* КАЛЕНДАРЬ С ЭФФЕКТОМ ПОДСВЕТКИ */
 .script-month {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
@@ -238,16 +233,22 @@ body {
   justify-content: center;
 }
 
-/* Обведенная дата 3 октября */
 .wedding-day {
   border: 1px dashed #b38e46;
   border-radius: 50%;
   color: #b38e46;
   font-weight: 600;
-  position: relative;
+  box-shadow: 0 0 12px rgba(179, 142, 70, 0.3);
+  animation: pulseDay 2.5s infinite;
 }
 
-/* 4. ТАЙМЛАЙН */
+@keyframes pulseDay {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(179, 142, 70, 0.4); }
+  70% { transform: scale(1.08); box-shadow: 0 0 0 10px rgba(179, 142, 70, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(179, 142, 70, 0); }
+}
+
+/* ТАЙМЛАЙН С ПУЛЬСАЦИЕЙ */
 .timeline {
   display: flex;
   flex-direction: column;
@@ -266,6 +267,12 @@ body {
   color: #b38e46;
   font-size: 1.2rem;
   margin-bottom: 5px;
+  animation: heartPulse 1.8s infinite;
+}
+
+@keyframes heartPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.25); }
 }
 
 .timeline-time {
@@ -287,7 +294,7 @@ body {
   background: #e0d7c6;
 }
 
-/* 5. ТАЙМЕР */
+/* ТАЙМЕР */
 .timer-card {
   position: relative;
   background: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
@@ -316,7 +323,7 @@ body {
 .timer-grid {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 12px;
 }
 
 .time-box {
@@ -325,7 +332,7 @@ body {
   padding: 12px 10px;
   border-radius: 8px;
   min-width: 65px;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.25);
 }
 
 .time-box span {
@@ -340,7 +347,7 @@ body {
   opacity: 0.8;
 }
 
-/* 6. ЛОКАЦИЯ */
+/* ЛОКАЦИЯ И КНОПКА */
 .city-name {
   font-size: 0.85rem;
   letter-spacing: 3px;
@@ -362,6 +369,7 @@ body {
   border-radius: 12px;
   overflow: hidden;
   margin-bottom: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .venue-image img {
@@ -371,7 +379,7 @@ body {
 }
 
 .map-button {
-  display: inline-block;
+  display: inline-button;
   background: #111;
   color: #fff;
   padding: 14px 30px;
@@ -379,18 +387,14 @@ body {
   text-decoration: none;
   font-size: 0.8rem;
   letter-spacing: 2px;
-  transition: 0.3s;
+  transition: background 0.3s;
 }
 
-/* 7. ТОЙ ИЕЛЕРІ */
-.host-names {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #444;
-  letter-spacing: 1px;
+.map-button:hover {
+  background: #333;
 }
 
-/* 8. RSVP ФОРМА */
+/* RSVP */
 .rsvp-title {
   font-size: 0.85rem;
   letter-spacing: 2px;
@@ -449,7 +453,7 @@ body {
   cursor: pointer;
 }
 
-/* 9. ФУТЕР */
+/* ФУТЕР */
 .script-footer {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
