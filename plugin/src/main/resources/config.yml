@@ -1,0 +1,9 @@
+# URL of the Blizzard ELO Cloudflare Worker, without a trailing slash
+worker-url: "https://blizzard-elo-api.izturganovnurtilek.workers.dev"
+
+# Use the same API secret configured in Cloudflare as API_SECRET.
+# Never share this value publicly or paste it into chat.
+api-secret: ""
+
+# Refresh online players' skins every 5 minutes (300 seconds)
+refresh-seconds: 300
