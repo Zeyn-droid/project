@@ -1,0 +1,6 @@
+name: BlizzardSkinBridge
+version: 1.0.0
+main: net.blizzard.smp.skinbridge.BlizzardSkinBridge
+api-version: '1.21'
+depend: [SkinsRestorer]
+description: Syncs SkinRestorer player textures to the Blizzard SMP website
