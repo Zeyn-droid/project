@@ -89,7 +89,8 @@ public final class BlizzardSkinBridge extends JavaPlugin implements Listener {
             String textureUrl = PropertyUtils.getSkinTextureUrl(property.get());
             if (textureUrl == null || !textureUrl.matches(
                     "^https://textures\\.minecraft\\.net/texture/[a-fA-F0-9]{32,64}$")) {
-                getLogger().warning("SkinRestorer returned an unexpected texture URL for " + username);
+                getLogger().warning("SkinRestorer returned an unexpected texture URL for " + username
+                        + ": [" + textureUrl + "]");
                 return;
             }
 
